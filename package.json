@@ -1,0 +1,29 @@
+{
+  "name": "cat-shelter",
+  "version": "1.0.0",
+  "description": "Homework from JS Web Back-End",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YStoichkov/Cat-Shelter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YStoichkov/Cat-Shelter/issues"
+  },
+  "homepage": "https://github.com/YStoichkov/Cat-Shelter#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "mongoose": "^6.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
