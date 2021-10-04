@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}));
 initHandlebars(app);
 
 app.use(express.static(path.resolve(__dirname,'./public')));
-
+app.use(express.static(path.resolve(__dirname,'./public/images')));
 app.use(routes);
 
 initDatabase('mongodb://localhost:27017/cats')

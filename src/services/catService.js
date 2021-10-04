@@ -5,14 +5,32 @@ const addBreed = (name) => {
     let breed = new Breed({
         name
     });
-    console.log(`From service: ${breed}`);
     return breed.save();
 }
 
+const getAllBreeds = () => Breed.find({}).lean();
+
+const getBreed = (breedName) => Breed.find({ name: breedName }).lean();
+
+const addCat = (name, description, image, breed) => {
+    let cat = new Cat({
+        name,
+        description,
+        image,
+        breed
+    })
+    return cat.save();
+}
+
+const getAllCats = ()=>Cat.find({}).lean();
 
 
 const catService = {
     addBreed,
+    getAllBreeds,
+    getBreed,
+    addCat,
+    getAllCats,
 }
 
 module.exports = catService;

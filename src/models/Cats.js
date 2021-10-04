@@ -11,18 +11,18 @@ const catSchema = new mongoose.Schema({
         minlength: [10, `Minimum length must be above 10 symbols`],
         maxlength: [100, `Maximum length should be 100 symbols`]
     },
-    image :{
-        data:Buffer,
-        contentType:String
+    image: {
+        type: String,
+        required: true
     },
     breed: [
         {
             type: mongoose.Types.ObjectId,
-            ref:'Breed'
+            ref: 'Breed'
         }
     ]
 });
 
-const Cat = mongoose.model('Cat',catSchema);
+const Cat = mongoose.model('Cat', catSchema);
 
 module.exports = Cat;
