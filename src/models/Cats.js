@@ -15,12 +15,11 @@ const catSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    breed: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Breed'
-        }
-    ]
+    breed: {
+        type: String,
+        required:true,
+    }
+
 });
 
 const Cat = mongoose.model('Cat', catSchema);

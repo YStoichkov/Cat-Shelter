@@ -23,15 +23,16 @@ const addCat = async (req, res) => {
     let breeds = await catService.getBreed(breed);
     let image = req.file.filename;
     try {
-        await catService.addCat(name, description, image, breeds);
+        await catService.addCat(name, description, image, breed);
         res.redirect('/');
     } catch (err) {
         res.status(400).end({ message: err.message });
     }
 }
 
-const editCat = (req, res) => {
-    res.render('cats/edit');
+const editCat = async (req, res) => {
+    let cat = await catService.getCat(req.params.catId);
+    res.render('cats/edit', { ...cat });
 }
 
 const getAddBreed = (req, res) => {
@@ -49,12 +50,10 @@ const addBreed = async (req, res) => {
 
 router.get('/add-cat', getAddCat);
 router.post('/add-cat', upload.single('upload'), addCat);
-// router.post('/add-cat', upload.single('upload'), (req, res) => {
-//     res.send('Image Uploaded');
-// });
 router.get('/add-breed', getAddBreed);
 router.post('/add-breed', addBreed);
-router.get('/edit', editCat);
+router.get('/edit/:catId', editCat);
+router.get('/adopt/:catId', editCat);
 
 
 module.exports = router;

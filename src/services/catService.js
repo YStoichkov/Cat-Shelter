@@ -12,6 +12,8 @@ const getAllBreeds = () => Breed.find({}).lean();
 
 const getBreed = (breedName) => Breed.find({ name: breedName }).lean();
 
+
+
 const addCat = (name, description, image, breed) => {
     let cat = new Cat({
         name,
@@ -22,7 +24,9 @@ const addCat = (name, description, image, breed) => {
     return cat.save();
 }
 
-const getAllCats = ()=>Cat.find({}).lean();
+const getAllCats = () => Cat.find({}).lean();
+
+const getCat = (id) => Cat.findById(id).lean();
 
 
 const catService = {
@@ -31,6 +35,7 @@ const catService = {
     getBreed,
     addCat,
     getAllCats,
+    getCat
 }
 
 module.exports = catService;

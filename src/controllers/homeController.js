@@ -8,7 +8,7 @@ const home = async (req, res) => {
     res.render('index', { cats });
 }
 
-router.use(express.static(path.resolve(__dirname,'./public')));
+router.use(express.static(path.resolve(__dirname, './public')));
 router.get('/', home);
 
 module.exports = router;
